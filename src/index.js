@@ -16,7 +16,7 @@ app.use('/files', express.static("files"));
 // Routes
 app.get("/", (req, res) => {
 	res.json({
-		message: "Hewow",
+		message: "Hewo000w",
 	});
 });
 require('../src/routerHandler')(app);
