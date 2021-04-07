@@ -16,7 +16,7 @@ app.use('/files', express.static("files"));
 // Routes
 app.get("/", (req, res) => {
 	res.json({
-		message: "Arise MERN developers",
+		message: "Hewow",
 	});
 });
 require('../src/routerHandler')(app);
