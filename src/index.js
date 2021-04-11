@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-var bodyParser = require("body-parser");
+// var bodyParser = require("body-parser");
 const morgan = require("morgan");
 
 // Create Server
@@ -21,8 +21,10 @@ var corsOptionsDelegate = function (req, callback) {
 require("./config/mongoose.js")(app);
 app.use(morgan("dev"));
 app.use(cors(corsOptionsDelegate));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use("/files", express.static("files"));
+app.use('/api/users', require('../routes/api/users'));
+app.use('/api/auth', require('../routes/api/auth'));
 
 // Routes
 app.get("/", (req, res) => {
