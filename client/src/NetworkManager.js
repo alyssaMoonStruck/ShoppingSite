@@ -4,14 +4,10 @@ config()
 
 export default class NetworkManager {
     static createManager() {
-        let token = this.getToken()
+        let token = localStorage.getItem('token')
         if(token)
-            axios.defaults.headers = {Authorization: 'Bearer' + token}
+            axios.defaults.headers = {'x-auth-token': token}
             return axios.create({
                 baseURL: process.env.API_URL,
             })
-    }
-    static getToken() {
-        return "";
-    }
-}
+    }}

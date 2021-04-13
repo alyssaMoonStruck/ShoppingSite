@@ -23,8 +23,6 @@ app.use(morgan("dev"));
 app.use(cors(corsOptionsDelegate));
 app.use(express.json());
 app.use("/files", express.static("files"));
-app.use('/api/users', require('../routes/api/users'));
-app.use('/api/auth', require('../routes/api/auth'));
 
 // Routes
 app.get("/", (req, res) => {

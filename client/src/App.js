@@ -1,10 +1,13 @@
 import React, { useEffect,useState } from 'react'
 import NetworkManager from './NetworkManager';
+import { loadUser } from './actions/authActions'
+import store from '../src/store'
 
 function App() {
   const [products, setProducts] = useState(null)
 
   useEffect(() => {
+    store.dispatch(loadUser())
     let instance = NetworkManager.createManager()
     instance.get("/product").then(res => {
       setProducts(res.data.data)
